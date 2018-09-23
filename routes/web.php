@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin/{any}',function(){
+	return redirect('admin');
+})->where('any','.*');
+
+Route::resource('/admin','BackendController');
+
+Route::post('getData','BackendController@getData');
