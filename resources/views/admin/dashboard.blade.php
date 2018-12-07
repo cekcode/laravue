@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" id="token" value="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description" content="For Backend Development Rumah Sakit Brayat Minulya">
     <meta name="keywords" content="rumah sakit solo, rumah sakit swasta,rumah sakit modern">
@@ -11,10 +12,11 @@
     <link rel="apple-touch-icon" href="{{ asset('assets_admin/images/ico/apple-icon-120.png') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets_admin/images/ico/favicon.ico') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
-    rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
+    rel="stylesheet"> -->
     <link href="{{ asset('assets_admin/fonts/line-awesome/css/line-awesome.min.css') }}" rel="stylesheet">
     <!-- BEGIN CSS-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/vendors.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/vendors/css/animate/animate.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/app.css') }}">

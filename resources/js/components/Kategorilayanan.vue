@@ -1,11 +1,12 @@
 <template>
+<div>
   <div class="app-content content">
     <span class="is-pulled-right" v-if="loading">
       <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i>
     </span>
     <div class="content-wrapper">
       <div class="content-header row">
-        <div class="content-header-left col-md-6 col-12 mb-2">
+        <div class="content-header-left col-md-10 col-12 mb-2">
           <h3 class="content-header-title">Kategori Layanan</h3>
           <div class="row breadcrumbs-top">
             <div class="breadcrumb-wrapper col-12">
@@ -17,6 +18,10 @@
               </ol>
             </div>
           </div>
+        </div>
+
+        <div class="content-header-right col-md-2 col-12 mb-2">
+          <button class="btn btn-info" data-toggle="modal" data-target="#large">Tambah</button>
         </div>
       </div>
       <div class="content-body">
@@ -47,7 +52,8 @@
                         <tr v-for="(item, index) in temp" :key="item.id">
                           <td>{{ index }}</td>
                           <td>{{ item.nama }}</td>
-                          <td>Aktif</td>
+                          <td v-if=" item.status == 1">Aktif</td>
+                          <td v-else>Tidak Aktif</td>
                           <td><button type="button" class="btn btn-outline-warning btn-min-width box-shadow-1 mr-1 mb-1"><i class="la la-pencil"></i> Edit</button></td>
                           <td><button type="button" class="btn btn-outline-danger btn-min-width box-shadow-1 mr-1 mb-1"><i class="la la-trash"></i> Hapus</button></td>
                         </tr>
@@ -64,12 +70,16 @@
       </div>
     </div>
   </div>
-
+  <Add></Add>
+</div>
 </template>
 
+
+
 <script>
+let Add = require('./functions/Addkatlayanan.vue');
   export default {
-    
+    components:{Add},
     data(){
 			return{
 				lists:{},
@@ -96,12 +106,12 @@
 			}
 		},
     mounted: function() {
-      axios.post('/getData')
+      axios.get('/getKatlayanan')
 			.then((response)=> this.lists = this.temp = response.data)
 			.catch((error) => this.errors = error.response.data.errors)
     },
     methods:{
-      
+
 		}
     
   }

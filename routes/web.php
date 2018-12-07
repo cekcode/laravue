@@ -21,4 +21,5 @@ Route::get('/admin/{any}',function(){
 
 Route::resource('/admin','BackendController');
 
-Route::post('getData','BackendController@getData');
+Route::resource('/katlayanan','KategorilayananController');
+Route::get('getKatlayanan','KategorilayananController@getKatlayanan');

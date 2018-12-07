@@ -5,9 +5,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-let Mymenu = require('./components/core/Mymenu.vue');
-let Mynav = require('./components/core/Mynav.vue');
-let Myfooter = require('./components/core/Myfooter.vue');
+let Mymenu = require('./components/cores/Mymenu.vue');
+let Mynav = require('./components/cores/Mynav.vue');
+let Myfooter = require('./components/cores/Myfooter.vue');
 
 let Dashboard = require('./components/Dashboard.vue');
 let Profile = require('./components/Profile.vue');
@@ -16,6 +16,7 @@ let Jadwaldokter = require('./components/Jadwaldokter.vue');
 let Kategorilayanan = require('./components/Kategorilayanan.vue');
 let Layanan = require('./components/Layanan.vue');
 let Kategoriinformasi = require('./components/Kategoriinformasi.vue');
+let Addkatlayanan = require('./components/functions/Addkatlayanan.vue');
 let Informasi = require('./components/Informasi.vue');
 
 
@@ -23,6 +24,7 @@ const routes = [
   { path: '/admin', component: Dashboard },
   { path: '/admin/profile', component: Profile },
   { path: '/admin/kategori-layanan', component: Kategorilayanan },
+  { path: '/admin/tambah-kategori-layanan', component: Addkatlayanan },
   { path: '/admin/layanan', component: Layanan },
   { path: '/admin/kategori-dokter', component: Kategoridokter },
   { path: '/admin/jadwal-dokter', component: Jadwaldokter },
@@ -32,8 +34,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  base : '/',
-  mode: 'history',
+  // base : '/',
+  // mode: 'history',
   routes
 })
 

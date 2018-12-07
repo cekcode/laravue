@@ -49,7 +49,7 @@
           <li class="nav-item"><a href="#"><i class="la la-bars"></i><span class="menu-title" data-i18n="nav.templates.main">Kategori Layanan</span></a>
             <ul class="menu-content">
               <li><router-link class="menu-item" data-i18n="nav.navbars.nav_light" to="/admin/kategori-layanan">Semua Kategori Layanan</router-link></li>
-              <li><a class="menu-item" href="/user/users/Semua-user" data-i18n="nav.navbars.nav_light">Tambah Kategori Layanan</a></li>
+              <li><router-link class="menu-item" data-i18n="nav.navbars.nav_light" to="/admin/tambah-kategori-layanan">Tambah Kategori Layanan</router-link></li>
             </ul>
           </li>
           <li class="nav-item"><a href="#"><i class="la la-ambulance"></i><span class="menu-title" data-i18n="nav.templates.main">Layanan</span></a>
@@ -67,13 +67,13 @@
           <li class="nav-item"><a href="#"><i class="la la-bars"></i><span class="menu-title" data-i18n="nav.templates.main">Kategori Informasi</span></a>
             <ul class="menu-content">
               <li><router-link class="menu-item" data-i18n="nav.navbars.nav_light" to="/admin/kategori-informasi">Semua Kategori Informasi</router-link></li>
-              <li><a class="menu-item" href="navbar-components.html" data-i18n="nav.navbars.nav_components">Tambah Kategori Informasi</a></li>
+              <li><router-link class="menu-item" data-i18n="nav.navbars.nav_light" to="/admin/kategori-informasi">Tambah Kategori Informasi</router-link></li>
             </ul>
           </li>
           <li class="nav-item"><a href="#"><i class="la la-bullhorn"></i><span class="menu-title" data-i18n="nav.templates.main">Informasi</span></a>
             <ul class="menu-content">
               <li><router-link class="menu-item" data-i18n="nav.navbars.nav_light" to="/admin/informasi">Semua Informasi</router-link></li>
-              <li><a class="menu-item" href="navbar-components.html" data-i18n="nav.navbars.nav_components">Tambah Informasi</a></li>
+              <li><router-link class="menu-item" data-i18n="nav.navbars.nav_light" to="/admin/informasi">Semua Informasi</router-link></li>
             </ul>
           </li>
           
