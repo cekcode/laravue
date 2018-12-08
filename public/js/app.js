@@ -52591,10 +52591,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 var Add = __webpack_require__(13);
+var Update = __webpack_require__(77);
 /* harmony default export */ __webpack_exports__["default"] = ({
-	components: { Add: Add },
+	components: { Add: Add, Update: Update },
 	data: function data() {
 		return {
 			lists: {},
@@ -52611,8 +52613,8 @@ var Add = __webpack_require__(13);
 
 			if (this.searchQuery.length > 0) {
 				this.temp = this.lists.filter(function (item) {
-					return Object.keys(item).some(function (key) {
-						var string = String(item[key]);
+					return Object.keys(item).some(function (index) {
+						var string = String(item[index]);
 						return string.toLowerCase().indexOf(_this.searchQuery.toLowerCase()) > -1;
 						// console.log(string)
 					});
@@ -52649,6 +52651,10 @@ var Add = __webpack_require__(13);
 				// .catch((error) => this.errors = error.response.data.errors)	
 			}
 			console.log(index + ' ' + id);
+			// window.location.reload(true)
+		},
+		openUpdate: function openUpdate(index) {
+			this.$children[1].list = this.temp[index];
 		}
 	}
 
@@ -52998,8 +53004,7 @@ var render = function() {
                           _c(
                             "table",
                             {
-                              staticClass:
-                                "table table-striped table-bordered dt-config text-center"
+                              staticClass: "table table-striped table-bordered"
                             },
                             [
                               _vm._m(2),
@@ -53016,7 +53021,31 @@ var render = function() {
                                       ? _c("td", [_vm._v("Aktif")])
                                       : _c("td", [_vm._v("Tidak Aktif")]),
                                     _vm._v(" "),
-                                    _vm._m(3, true),
+                                    _c("td", [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-outline-warning btn-min-width box-shadow-1 mr-1 mb-1",
+                                          attrs: {
+                                            type: "button",
+                                            "data-toggle": "modal",
+                                            "data-target": "#largeedit"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.openUpdate(index)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "la la-pencil"
+                                          }),
+                                          _vm._v(" Edit")
+                                        ]
+                                      )
+                                    ]),
                                     _vm._v(" "),
                                     _c("td", [
                                       _c(
@@ -53055,7 +53084,9 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("Add")
+      _c("Add"),
+      _vm._v(" "),
+      _c("Update")
     ],
     1
   )
@@ -53124,22 +53155,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Hapus")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "button",
-        {
-          staticClass:
-            "btn btn-outline-warning btn-min-width box-shadow-1 mr-1 mb-1",
-          attrs: { type: "button" }
-        },
-        [_c("i", { staticClass: "la la-pencil" }), _vm._v(" Edit")]
-      )
     ])
   }
 ]
@@ -54095,6 +54110,311 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(79)
+/* template */
+var __vue_template__ = __webpack_require__(78)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/functions/Updatekatlayanan.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-09682a70", Component.options)
+  } else {
+    hotAPI.reload("data-v-09682a70", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "modal fade text-left",
+      attrs: {
+        id: "largeedit",
+        tabindex: "-1",
+        role: "dialog",
+        "aria-labelledby": "myModalLabel17",
+        "aria-hidden": "true"
+      }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "modal-dialog modal-lg", attrs: { role: "document" } },
+        [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "field" }, [
+                _c("label", { staticClass: "label" }, [_vm._v("Nama")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.list.nama,
+                        expression: "list.nama"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-danger": _vm.errors.nama },
+                    attrs: {
+                      id: "nama",
+                      name: "nama",
+                      type: "text",
+                      placeholder: "Nama"
+                    },
+                    domProps: { value: _vm.list.nama },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.list, "nama", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm.errors.name
+                  ? _c("small", { staticClass: "has-text-danger" }, [
+                      _vm._v(_vm._s(_vm.errors.nama[0]))
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "field" }, [
+                _c("label", { staticClass: "label" }, [_vm._v("Status")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.list.status,
+                          expression: "list.status"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-danger": _vm.errors.status },
+                      attrs: { name: "status", id: "status" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.list,
+                            "status",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "0" } }, [
+                        _vm._v("Tidak Aktif")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [_vm._v("Aktif")])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm.errors.status
+                  ? _c("small", { staticClass: "has-text-danger" }, [
+                      _vm._v(_vm._s(_vm.errors.status[0]))
+                    ])
+                  : _vm._e()
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn grey btn-outline-secondary",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-primary",
+                  attrs: { type: "button", "data-dismiss": "modal" },
+                  on: { click: _vm.update }
+                },
+                [_vm._v("Update changes")]
+              )
+            ])
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h4",
+        { staticClass: "modal-title", attrs: { id: "myModalLabel17" } },
+        [_vm._v("Edit Modal")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-09682a70", module.exports)
+  }
+}
+
+/***/ }),
+/* 79 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			list: {},
+			errors: {}
+		};
+	},
+
+	methods: {
+		update: function update() {
+			var _this = this;
+
+			axios.patch("/katlayanan/" + this.list.id, this.$data.list).then(function (response) {
+				return _this.close();
+			}).catch(function (error) {
+				return _this.errors = error.response.data.errors;
+			});
+		}
+	}
+});
 
 /***/ })
 /******/ ]);

@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                    <table class="table table-striped table-bordered dt-config text-center">
+                    <table class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>No</th>
@@ -54,7 +54,7 @@
                           <td>{{ item.nama }}</td>
                           <td v-if=" item.status == 1">Aktif</td>
                           <td v-else>Tidak Aktif</td>
-                          <td><button type="button" class="btn btn-outline-warning btn-min-width box-shadow-1 mr-1 mb-1"><i class="la la-pencil"></i> Edit</button></td>
+                          <td><button type="button" class="btn btn-outline-warning btn-min-width box-shadow-1 mr-1 mb-1" data-toggle="modal" data-target="#largeedit" @click="openUpdate(index)"><i class="la la-pencil"></i> Edit</button></td>
                           <td><button type="button" class="btn btn-outline-danger btn-min-width box-shadow-1 mr-1 mb-1" @click="del(item.id, index)"><i class="la la-trash"></i> Hapus</button></td>
                         </tr>
                       </tbody>
@@ -71,6 +71,7 @@
     </div>
   </div>
   <Add></Add>
+  <Update></Update>
 </div>
 </template>
 
@@ -78,12 +79,13 @@
 
 <script>
 let Add = require('./functions/Addkatlayanan.vue');
+let Update = require('./functions/Updatekatlayanan.vue');
   export default {
-    components:{Add},
+    components:{Add,Update},
     data(){
 			return{
 				lists:{},
-				errors:{},
+        errors:{},
         loading:false,
         searchQuery:'',
 				temp:''
@@ -93,8 +95,8 @@ let Add = require('./functions/Addkatlayanan.vue');
 			searchQuery(){
 				if (this.searchQuery.length > 0) {
 					this.temp = this.lists.filter((item) => {
-						return Object.keys(item).some((key)=>{
-							let string = String(item[key]) 
+						return Object.keys(item).some((index)=>{
+							let string = String(item[index]) 
 							return string.toLowerCase().indexOf(this.searchQuery.toLowerCase())>-1
 							// console.log(string)
 						})
@@ -123,7 +125,11 @@ let Add = require('./functions/Addkatlayanan.vue');
 					// .then((response)=> {this.lists.splice(key,1);this.loading = !this.loading})
 					// .catch((error) => this.errors = error.response.data.errors)	
 				}
-				console.log(`${index} ${id}`)
+        console.log(`${index} ${id}`)
+        // window.location.reload(true)
+      },
+      openUpdate(index){
+				this.$children[1].list = this.temp[index]
 			}
 		}
     

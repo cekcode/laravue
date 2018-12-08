@@ -69,7 +69,10 @@ class KategorilayananController extends Controller
      */
     public function update(Request $request, Kategorilayanan $kategorilayanan)
     {
-        //
+        $dt = Kategorilayanan::find($request->id);
+        $dt->nama = $request->nama;
+        $dt->status = $request->status;
+        $dt->save();
     }
 
     /**

@@ -40,5 +40,6 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 <script src="{{ asset('assets_admin/js/core/app.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets_admin/js/scripts/customizer.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets_admin/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
+<!-- <script src="{{ asset('assets_admin/js/scripts/tables/datatables/datatable-basic.js') }}" type="text/javascript"></script> -->
 </body>
 </html>
