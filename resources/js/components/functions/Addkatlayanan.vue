@@ -68,9 +68,10 @@
                   return -1;
                 }
               })
-              this.list = ""
+              this.list.nama = null;
+              this.list.status = null;
               
-				
+
 				})
 				  .catch((error) => this.errors = error.response.data.errors)
 			}

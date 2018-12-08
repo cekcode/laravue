@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Kategorilayanan;
 use Illuminate\Http\Request;
-use App\Http\Requests\KatlayananRequest;
+use App\Http\Requests\KategorilayananRequest;
 
 class KategorilayananController extends Controller
 {
@@ -78,8 +78,8 @@ class KategorilayananController extends Controller
      * @param  \App\Kategorilayanan  $kategorilayanan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kategorilayanan $kategorilayanan)
+    public function destroy($kategorilayanan)
     {
-        //
+        Kategorilayanan::where('id',$kategorilayanan)->delete();
     }
 }

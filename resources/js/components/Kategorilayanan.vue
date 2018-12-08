@@ -55,7 +55,7 @@
                           <td v-if=" item.status == 1">Aktif</td>
                           <td v-else>Tidak Aktif</td>
                           <td><button type="button" class="btn btn-outline-warning btn-min-width box-shadow-1 mr-1 mb-1"><i class="la la-pencil"></i> Edit</button></td>
-                          <td><button type="button" class="btn btn-outline-danger btn-min-width box-shadow-1 mr-1 mb-1"><i class="la la-trash"></i> Hapus</button></td>
+                          <td><button type="button" class="btn btn-outline-danger btn-min-width box-shadow-1 mr-1 mb-1" @click="del(item.id, index)"><i class="la la-trash"></i> Hapus</button></td>
                         </tr>
                       </tbody>
                     </table>
@@ -111,7 +111,20 @@ let Add = require('./functions/Addkatlayanan.vue');
 			.catch((error) => this.errors = error.response.data.errors)
     },
     methods:{
-
+      del(id, index){
+				if (confirm("Are you sure ?")) {
+          this.loading = !this.loading
+          
+        axios
+        .delete(`/katlayanan/${id}`)
+        .then(res => {this.lists.splice(index, 1);this.loading = !this.loading})
+        .catch((error) => this.errors = error.response.data.errors)	
+					// axios.delete(`/katlayanan/${id}`)
+					// .then((response)=> {this.lists.splice(key,1);this.loading = !this.loading})
+					// .catch((error) => this.errors = error.response.data.errors)	
+				}
+				console.log(`${index} ${id}`)
+			}
 		}
     
   }
